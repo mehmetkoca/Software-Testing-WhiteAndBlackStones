@@ -26,6 +26,14 @@ public class Main {
     public static void main(String[] args) {
         //System.out.println("Taşlar 15 basamaklı " + fiboFunc(15) + " farklı şekilde sıralanabilir.");
         System.out.println("Taş sayısını girin: ");
+
+        while(!scanner.hasNextInt()) {
+
+
+            System.out.println("lütfen rakam dışında bir şey girmeyin");
+            scanner.next();
+
+        }
         double stones = scanner.nextInt();
         boolean quit = false;
         System.out.println("Taşlar " + (int)stones + " basamaklı " + (int)fiboFunc(stones) + " farklı şekilde sıralanabilir.");
