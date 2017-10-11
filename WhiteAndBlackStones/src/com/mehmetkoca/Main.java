@@ -9,11 +9,11 @@ public class Main {
     //sıralama ihtimallerinde elde edildiği görülüyor.
     //Taş sayısının iki önceki ve bir önceki sıralama ihtimallerinin toplamı istenen sayının sıralama ihtimallerini veriyor.
     private static Scanner scanner = new Scanner(System.in);
-    public static double fiboFunc(double stones) {
+    public static long fiboFunc(long stones) {
         if(stones == 1) {return 1;}
         if(stones == 2) {return 2;}
 
-        double prev=0d, next=1d, result=0d;
+        long prev=0, next=1, result=0;
         for (int i = 0; i < stones; i++) {
             result=prev+next;
             prev=next;
@@ -23,19 +23,40 @@ public class Main {
 
         //return fiboFunc(stones-1) + fiboFunc(stones-2);
     }
+    public static boolean kontrolEt(long deger){
+
+        if(deger > 0 && deger < 10000)
+            return true;
+        else return false;
+    }
+
+    public static void bul(long deger){
+
+
+        System.out.println("Taşlar " + deger + " basamaklı " + fiboFunc(deger) + " farklı şekilde sıralanabilir.");
+    }
+
+
     public static void main(String[] args) {
-        //System.out.println("Taşlar 15 basamaklı " + fiboFunc(15) + " farklı şekilde sıralanabilir.");
+
+
         System.out.println("Taş sayısını girin: ");
 
-        while(!scanner.hasNextInt()) {
 
+        try{
 
-            System.out.println("lütfen rakam dışında bir şey girmeyin");
-            scanner.next();
+            long stones = scanner.nextInt();
+            while (!kontrolEt(stones)){
+                System.out.println("lütfen yüzbin ile 0 arasında bir değer girin");
+                stones = scanner.nextInt();
 
+            }
+            bul(stones);
+
+        }catch (Exception e)
+        {
+            System.out.println("Sayı dışında değer girdiğinizden program kendini sonlandırdı");
         }
-        double stones = scanner.nextInt();
-        boolean quit = false;
-        System.out.println("Taşlar " + (int)stones + " basamaklı " + (int)fiboFunc(stones) + " farklı şekilde sıralanabilir.");
+
     }
 }
