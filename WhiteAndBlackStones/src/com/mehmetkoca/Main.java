@@ -27,6 +27,7 @@ public class Main {
         //System.out.println("Taşlar 15 basamaklı " + fiboFunc(15) + " farklı şekilde sıralanabilir.");
         System.out.println("Taş sayısını girin: ");
         double stones = scanner.nextInt();
-        System.out.println("Taşlar " + stones + " basamaklı " + fiboFunc(stones) + " farklı şekilde sıralanabilir.");
+        boolean quit = false;
+        System.out.println("Taşlar " + (int)stones + " basamaklı " + (int)fiboFunc(stones) + " farklı şekilde sıralanabilir.");
     }
 }
